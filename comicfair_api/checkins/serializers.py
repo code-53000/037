@@ -162,7 +162,7 @@ class CheckInVerifySerializer(serializers.Serializer):
         return application, {
             'type': CheckInType.EXHIBITOR,
             'status': CheckInStatus.SUCCESS,
-            'message': f'欢迎！{application.club_name',
+            'message': f'欢迎！{application.club_name}',
             'application': application,
             'person_name': application.contact_name,
             'person_info': {

@@ -5,6 +5,14 @@ from django.conf import settings
 from exhibitions.models import Exhibition
 
 
+def _generate_ticket_no():
+    return 'TK' + uuid.uuid4().hex[:14].upper()
+
+
+def _generate_ticket_code():
+    return 'TC' + uuid.uuid4().hex[:14].upper()
+
+
 class TicketType(models.TextChoices):
     SINGLE_DAY = 'single_day', '单日票'
     MULTI_DAY = 'multi_day', '通票'
@@ -100,7 +108,7 @@ class Ticket(models.Model):
     ticket_no = models.CharField(
         max_length=32,
         unique=True,
-        default=lambda: 'TK' + uuid.uuid4().hex[:14].upper(),
+        default=_generate_ticket_no,
         verbose_name='票号',
     )
     user = models.ForeignKey(
@@ -129,7 +137,7 @@ class Ticket(models.Model):
     ticket_code = models.CharField(
         max_length=64,
         unique=True,
-        default=lambda: 'TC' + uuid.uuid4().hex[:14].upper(),
+        default=_generate_ticket_code,
         verbose_name='入场核验码',
     )
     status = models.CharField(
