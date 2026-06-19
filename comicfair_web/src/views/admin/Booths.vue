@@ -119,7 +119,7 @@
                 </el-descriptions-item>
                 <el-descriptions-item label="供电">{{ selectedBooth.has_electricity ? '✓' : '✗' }}</el-descriptions-item>
                 <el-descriptions-item label="桌子">{{ selectedBooth.has_table ? '✓' : '✗' }}</el-descriptions-item>
-                <el-descriptions-item label="椅子">{{ selectedBooth.has_chair ? '✓' }}</el-descriptions-item>
+                <el-descriptions-item label="椅子">{{ selectedBooth.has_chair ? '✓' : '✗' }}</el-descriptions-item>
               </el-descriptions>
               <el-descriptions v-if="selectedBooth.application" :column="1" size="small" border style="margin-top: 10px">
                 <el-descriptions-item label="关联申请">
